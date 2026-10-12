@@ -87,6 +87,18 @@
             background-image: radial-gradient(#E2E2E2 1px, transparent 1px);
             background-size: 24px 24px;
         }
+
+        .gif-container {
+            background-color: #000000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .gif-container img {
+            object-fit: contain;
+            width: 100%;
+            height: 100%;
+        }
     </style>
 </head>
 <body class="bg-brand-bg text-brand-dark font-sans antialiased overflow-x-hidden selection:bg-brand-lime selection:text-brand-dark">
@@ -302,10 +314,10 @@
 
         <!-- Project 2: Sproutly -->
         <div class="project-card group bg-white rounded-2xl border border-brand-border overflow-hidden hover-lift flex flex-col justify-between" data-category="fullstack ai-ml">
-            <div class="h-56 bg-brand-grayLight overflow-hidden relative">
+            <div class="h-64 gif-container overflow-hidden relative">
                 <img src="gif/sprout.gif"
                      alt="Sproutly App"
-                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                     class="group-hover:scale-105 transition-transform duration-500">
                 <span class="absolute top-4 right-4 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md border border-brand-border text-[10px] font-mono font-bold text-brand-dark shadow-sm">
                         SUS 90.91 (Grade A)
                     </span>
@@ -330,10 +342,10 @@
 
         <!-- Project 3: NutriTrack -->
         <div class="project-card group bg-white rounded-2xl border border-brand-border overflow-hidden hover-lift flex flex-col justify-between" data-category="fullstack ai-ml">
-            <div class="h-56 bg-brand-grayLight overflow-hidden relative">
+            <div class="h-64 gif-container overflow-hidden relative">
                 <img src="gif/nutri.gif"
                      alt="NutriTrack AI"
-                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                     class="group-hover:scale-105 transition-transform duration-500">
                 <span class="absolute top-4 right-4 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md border border-brand-border text-[10px] font-mono font-bold text-brand-dark shadow-sm">
                         ELDERLY HEALTH TECH
                     </span>
@@ -358,10 +370,10 @@
 
         <!-- Project 4: Retail Analytics -->
         <div class="project-card group bg-white rounded-2xl border border-brand-border overflow-hidden hover-lift flex flex-col justify-between" data-category="ai-ml">
-            <div class="h-56 bg-brand-grayLight overflow-hidden relative">
+            <div class="h-64 gif-container overflow-hidden relative">
                 <img src="gif/retail.gif"
                      alt="Retail Analytics ML"
-                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                     class="group-hover:scale-105 transition-transform duration-500">
                 <span class="absolute top-4 right-4 px-3 py-1 rounded-full bg-brand-lime text-brand-dark font-mono text-[10px] font-bold shadow-sm">
                         R² = 0.948
                     </span>
@@ -386,10 +398,10 @@
 
         <!-- Project 5: Smart Home Hazard System -->
         <div class="project-card group bg-white rounded-2xl border border-brand-border overflow-hidden hover-lift flex flex-col justify-between" data-category="iot">
-            <div class="h-56 bg-brand-grayLight overflow-hidden relative">
+            <div class="h-64 gif-container overflow-hidden relative">
                 <img src="gif/iot.gif"
                      alt="Smart Home Hazard System"
-                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                     class="group-hover:scale-105 transition-transform duration-500">
             </div>
             <div class="p-6">
                 <span class="text-[10px] font-mono tracking-widest text-brand-secondary uppercase">EMBEDDED HARDWARE & CLOUD DASHBOARD</span>
