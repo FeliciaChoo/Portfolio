@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Felicia Choo — Software Engineer & AI Specialist</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts: Plus Jakarta Sans (Sans) & Cormorant Garamond (Italic Serif Accent) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,600;1,700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            bg: '#FFFFFF',
+                            dark: '#111111',
+                            secondary: '#777777',
+                            muted: '#A5A5A5',
+                            border: '#EAEAEA',
+                            grayLight: '#F5F5F5',
+                            lime: '#B7FF39',
+                            limeBright: '#A8FF24',
+                            limeSoft: '#DFFFAD',
+                            limePale: '#F3FFE7'
+                        }
+                    },
+                    boxShadow: {
+                        'soft': '0 10px 30px -5px rgba(0, 0, 0, 0.05)',
+                        'glow': '0 0 50px rgba(183, 255, 57, 0.45)',
+                        'glow-lg': '0 0 100px rgba(183, 255, 57, 0.55)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FFFFFF;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #111111;
+            border-radius: 3px;
+        }
+
+        /* Neon Lime Glow Background Effect */
+        .radial-lime-glow {
+            background: radial-gradient(circle at 50% 50%, rgba(183, 255, 57, 0.55) 0%, rgba(217, 255, 140, 0.25) 45%, rgba(255, 255, 255, 0) 75%);
+        }
+
+        .radial-lime-cta {
+            background: radial-gradient(circle at 50% 0%, rgba(183, 255, 57, 0.45) 0%, rgba(243, 255, 231, 0.3) 50%, rgba(255, 255, 255, 0) 80%);
+        }
+
+        /* Editorial typography & border details */
+        .editorial-line {
+            border-color: #EAEAEA;
+        }
+
+        .hover-lift {
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .hover-lift:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Subtle grid background pattern */
+        .bg-dot-pattern {
+            background-image: radial-gradient(#E2E2E2 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+    </style>
+</head>
+<body class="bg-brand-bg text-brand-dark font-sans antialiased overflow-x-hidden selection:bg-brand-lime selection:text-brand-dark">
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-brand-border transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+        <div class="flex items-center justify-between h-20">
+
+            <!-- Personal Wordmark -->
+            <a href="#hero" class="group flex items-center gap-3">
+                <span class="w-2.5 h-2.5 rounded-full bg-brand-limeBright animate-pulse shadow-glow"></span>
+                <span class="font-serif italic text-xl font-bold tracking-tight text-brand-dark group-hover:text-brand-secondary transition-colors">
+                        Felicia Choo
+                    </span>
+                <span class="hidden sm:inline-block text-xs font-mono text-brand-secondary border-l border-brand-border pl-3">
+                        CS @ UPM • CGPA 3.90
+                    </span>
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <nav class="hidden md:flex items-center space-x-10 text-xs font-medium uppercase tracking-widest text-brand-secondary">
+                <a href="#projects" class="hover:text-brand-dark transition-colors">Selected Work</a>
+                <a href="#philosophy" class="hover:text-brand-dark transition-colors">Capabilities</a>
+                <a href="#process" class="hover:text-brand-dark transition-colors">Process</a>
+                <a href="#about" class="hover:text-brand-dark transition-colors">About & Experience</a>
+            </nav>
+
+            <!-- Minimal Action Button -->
+            <div class="flex items-center space-x-4">
+                <a href="#contact" class="px-5 py-2.5 rounded-full bg-brand-dark text-white hover:bg-black font-semibold text-xs tracking-wider uppercase transition-all shadow-soft hover:scale-105">
+                    Get In Touch
+                </a>
+
+                <!-- Mobile Hamburger -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-full border border-brand-border hover:bg-brand-grayLight">
+                    <i class="fa-solid fa-bars text-sm"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Nav Menu -->
+    <div id="mobile-menu" class="hidden md:hidden border-b border-brand-border bg-white px-6 py-6 space-y-4 text-sm font-medium">
+        <a href="#projects" class="block text-brand-secondary hover:text-brand-dark py-1">Selected Work</a>
+        <a href="#philosophy" class="block text-brand-secondary hover:text-brand-dark py-1">Capabilities</a>
+        <a href="#process" class="block text-brand-secondary hover:text-brand-dark py-1">Process</a>
+        <a href="#about" class="block text-brand-secondary hover:text-brand-dark py-1">About & Experience</a>
+        <a href="#contact" class="block text-brand-dark font-bold py-1">Contact</a>
+    </div>
+</header>
+
+<section id="hero" class="relative pt-32 pb-20 md:pt-40 md:pb-32 bg-dot-pattern overflow-hidden">
+
+    <!-- Large Blurred Lime Radial Glow Background -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] sm:w-[800px] sm:h-[800px] radial-lime-glow rounded-full pointer-events-none z-0"></div>
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+
+        <!-- Intro Tag & Availability Badge -->
+        <div class="flex flex-wrap items-center justify-between gap-4 mb-8">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-brand-border shadow-sm text-xs font-medium">
+                <span class="w-2 h-2 rounded-full bg-brand-limeBright animate-ping"></span>
+                <span class="text-brand-dark font-semibold">Available for Roles & Projects</span>
+            </div>
+            <span class="text-xs font-mono uppercase tracking-widest text-brand-secondary">
+                    SOFTWARE ENGINEER & AI SPECIALIST • MALAYSIA
+                </span>
+        </div>
+
+        <!-- Main Editorial Headline (Sans + Italic Serif Accent) -->
+        <div class="max-w-4xl mx-auto text-center my-6">
+            <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-light tracking-tight leading-[1.02] text-brand-dark">
+                Hi, I'm <span class="font-bold">Felicia Choo</span>, crafting <span class="font-serif italic font-normal text-slate-900 border-b-2 border-brand-limeBright">intelligent</span> digital solutions.
+            </h1>
+        </div>
+
+        <!-- Hero Portrait & Asymmetric Annotations (Robin Noguier style composition) -->
+        <div class="relative mt-12 max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+
+            <!-- Left Social Proof & Quick Metrics -->
+            <div class="w-full md:w-1/4 space-y-4 text-center md:text-left order-2 md:order-1">
+                <div class="p-4 rounded-2xl bg-white/90 border border-brand-border shadow-soft backdrop-blur-sm">
+                    <div class="text-xs font-mono uppercase text-brand-secondary">Academic Honor</div>
+                    <div class="text-2xl font-bold text-brand-dark mt-0.5">3.90 CGPA</div>
+                    <div class="text-[11px] text-brand-secondary mt-1">CS @ Universiti Putra Malaysia</div>
+                </div>
+                <div class="p-4 rounded-2xl bg-white/90 border border-brand-border shadow-soft backdrop-blur-sm">
+                    <div class="text-xs font-mono uppercase text-brand-secondary">Innovation Recognition</div>
+                    <div class="text-2xl font-bold text-brand-dark mt-0.5">Gold Medalist</div>
+                    <div class="text-[11px] text-brand-secondary mt-1">PIITRAM 2023 Competition</div>
+                </div>
+            </div>
+
+
+            <!-- Center Portrait framed by Neon Glow -->
+            <div class="w-full md:w-2/4 flex justify-center order-1 md:order-2">
+                <div class="relative w-64 sm:w-72 md:w-80 h-80 sm:h-96
+                rounded-3xl bg-gradient-to-b from-brand-limePale to-white
+                border border-brand-lime/50 p-2 shadow-glow hover-lift">
+
+                    <img
+                            src="images/grasspic.jpeg"
+                            alt="Felicia Choo Portrait"
+                            class="block w-full h-full object-cover rounded-2xl
+                   filter grayscale contrast-110
+                   hover:grayscale-0 transition-all duration-500"
+                    >
+
+                    <div class="absolute -bottom-4 left-1/2 -translate-x-1/2
+                    px-4 py-1.5 rounded-full bg-brand-dark text-white
+                    text-[11px] font-mono tracking-wider whitespace-nowrap shadow-md">
+                        COHERENT INC. INTERN ALUM
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Right Narrative Annotation & Action -->
+            <div class="w-full md:w-1/4 space-y-4 text-center md:text-left order-3">
+                <p class="text-xs text-brand-secondary leading-relaxed">
+                    Fusing full-stack engineering, time-series ML modeling ($R^2 = 0.948$), and human-centered design to build robust products.
+                </p>
+                <a href="#projects" class="inline-flex items-center justify-center gap-2 w-full py-3 px-5 rounded-full bg-brand-dark text-white text-xs font-bold uppercase tracking-wider hover:bg-black transition-all shadow-soft">
+                    <span>Explore Works</span>
+                    <i class="fa-solid fa-arrow-down-long text-xs"></i>
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<section class="py-12 border-y border-brand-border bg-white">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+        <p class="text-center text-[11px] font-mono uppercase tracking-widest text-brand-muted mb-6">
+            TECHNOLOGIES, FRAMEWORKS & INSTITUTIONS
+        </p>
+        <div class="flex flex-wrap items-center justify-center md:justify-between gap-8 opacity-75 grayscale hover:grayscale-0 transition-all text-brand-dark font-mono text-xs font-semibold">
+            <span class="flex items-center gap-2"><i class="fa-brands fa-react text-lg"></i> REACT.JS</span>
+            <span class="flex items-center gap-2"><i class="fa-brands fa-python text-lg"></i> PYTHON</span>
+            <span class="flex items-center gap-2"><i class="fa-brands fa-java text-lg"></i> JAVA</span>
+            <span class="flex items-center gap-2"><i class="fa-brands fa-node-js text-lg"></i> NODE.JS</span>
+            <span class="flex items-center gap-2"><i class="fa-solid fa-database text-lg"></i> MONGODB</span>
+            <span class="flex items-center gap-2"><i class="fa-brands fa-google text-lg"></i> GOOGLE CYBER</span>
+            <span class="flex items-center gap-2"><i class="fa-solid fa-building text-lg"></i> COHERENT INC.</span>
+        </div>
+    </div>
+</section>
+
+<section id="projects" class="py-24 max-w-7xl mx-auto px-6 lg:px-12">
+
+    <!-- Section Header -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+        <div>
+            <span class="text-xs font-mono uppercase tracking-widest text-brand-secondary block mb-2">01 // CURATED PORTFOLIO</span>
+            <h2 class="text-3xl sm:text-5xl font-light tracking-tight text-brand-dark">
+                Selected <span class="font-serif italic font-normal">Works & Projects</span>
+            </h2>
+        </div>
+
+        <!-- Category Filter Pills -->
+        <div class="flex flex-wrap gap-2" id="project-filters">
+            <button data-filter="all" class="filter-btn active px-4 py-2 rounded-full text-xs font-mono uppercase tracking-wider transition-all bg-brand-dark text-white font-bold">ALL (6)</button>
+            <button data-filter="fullstack" class="filter-btn px-4 py-2 rounded-full text-xs font-mono uppercase tracking-wider border border-brand-border text-brand-secondary hover:text-brand-dark hover:border-brand-dark transition-all">FULL-STACK</button>
+            <button data-filter="ai-ml" class="filter-btn px-4 py-2 rounded-full text-xs font-mono uppercase tracking-wider border border-brand-border text-brand-secondary hover:text-brand-dark hover:border-brand-dark transition-all">AI & DATA</button>
+            <button data-filter="iot" class="filter-btn px-4 py-2 rounded-full text-xs font-mono uppercase tracking-wider border border-brand-border text-brand-secondary hover:text-brand-dark hover:border-brand-dark transition-all">IOT & CYBER</button>
+        </div>
+    </div>
+
+    <!-- Featured Lime Frame Showcase Collage Container -->
+    <div class="p-4 sm:p-6 rounded-[28px] bg-brand-lime border border-brand-limeBright shadow-glow mb-16">
+        <div class="bg-white rounded-2xl p-6 md:p-8 border border-brand-border flex flex-col lg:flex-row items-center justify-between gap-8">
+            <div class="lg:w-1/2 space-y-4">
+                    <span class="px-3 py-1 rounded-full bg-brand-limePale text-brand-dark border border-brand-lime text-[11px] font-mono uppercase font-bold">
+                        FEATURED SYSTEM
+                    </span>
+                <h3 class="text-2xl sm:text-4xl font-bold tracking-tight text-brand-dark">Gadget2Go (G2G)</h3>
+                <p class="text-xs font-mono text-brand-secondary">Used-Gadget Marketplace & AI Price Engine</p>
+                <p class="text-sm text-brand-secondary leading-relaxed">
+                    Engineered with React frontend and Python microservices connected to MongoDB. Includes an automated AI valuation engine that dynamically evaluates device condition, warranty, and market deprecation factors.
+                </p>
+                <div class="flex flex-wrap gap-2 pt-2 text-xs font-mono">
+                    <span class="px-2.5 py-1 rounded-md bg-brand-grayLight border border-brand-border">React</span>
+                    <span class="px-2.5 py-1 rounded-md bg-brand-grayLight border border-brand-border">Python</span>
+                    <span class="px-2.5 py-1 rounded-md bg-brand-grayLight border border-brand-border">MongoDB</span>
+                </div>
+                <button onclick="openModal('g2g')" class="inline-flex items-center gap-2 pt-2 text-xs font-mono uppercase font-bold text-brand-dark hover:underline">
+                    <span>View Technical Specs</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+
+            <!-- Collage Image Canvas Preview -->
+            <div class="lg:w-1/2 w-full h-64 sm:h-80 rounded-xl overflow-hidden bg-brand-grayLight border border-brand-border relative group">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=80"
+                     alt="Gadget2Go Dashboard"
+                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                    <span class="text-white font-mono text-xs">Full-Stack E-Commerce & ML Valuation</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2-Column Robin Noguier Project Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="projects-grid">
+
+        <!-- Project 2: Sproutly -->
+        <div class="project-card group bg-white rounded-2xl border border-brand-border overflow-hidden hover-lift flex flex-col justify-between" data-category="fullstack ai-ml">
+            <div class="h-56 bg-brand-grayLight overflow-hidden relative">
+                <img src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?auto=format&fit=crop&w=800&q=80"
+                     alt="Sproutly App"
+                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <span class="absolute top-4 right-4 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md border border-brand-border text-[10px] font-mono font-bold text-brand-dark shadow-sm">
+                        SUS 90.91 (Grade A)
+                    </span>
+            </div>
+            <div class="p-6">
+                <span class="text-[10px] font-mono tracking-widest text-brand-secondary uppercase">UI/UX & AI VISION DIAGNOSTICS</span>
+                <h3 class="text-xl font-bold tracking-tight text-brand-dark mt-1 group-hover:text-brand-secondary transition-colors">Sproutly Mobile App</h3>
+                <p class="text-xs text-brand-secondary mt-2 leading-relaxed">
+                    Smart gardening app with real-time AI leaf disease diagnosis and confidence scoring. Built with rigorous HCI principles following user studies with 22 participants.
+                </p>
+                <div class="flex flex-wrap gap-2 mt-4 text-[11px] font-mono text-brand-secondary">
+                    <span class="px-2 py-0.5 rounded bg-brand-grayLight border border-brand-border">Figma UI/UX</span>
+                    <span class="px-2 py-0.5 rounded bg-brand-grayLight border border-brand-border">AI Vision</span>
+                    <span class="px-2 py-0.5 rounded bg-brand-grayLight border border-brand-border">HCI Research</span>
+                </div>
+            </div>
+            <div class="px-6 pb-6 pt-2 border-t border-brand-border flex justify-between items-center">
+                <span class="text-xs font-mono text-brand-muted">Product Design</span>
+                <button onclick="openModal('sproutly')" class="text-xs font-mono uppercase font-bold text-brand-dark hover:underline">Specs &rarr;</button>
+            </div>
+        </div>
+
+        <!-- Project 3: NutriTrack -->
+        <div class="project-card group bg-white rounded-2xl border border-brand-border overflow-hidden hover-lift flex flex-col justify-between" data-category="fullstack ai-ml">
+            <div class="h-56 bg-brand-grayLight overflow-hidden relative">
+                <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=800&q=80"
+                     alt="NutriTrack AI"
+                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <span class="absolute top-4 right-4 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md border border-brand-border text-[10px] font-mono font-bold text-brand-dark shadow-sm">
+                        ELDERLY HEALTH TECH
+                    </span>
+            </div>
+            <div class="p-6">
+                <span class="text-[10px] font-mono tracking-widest text-brand-secondary uppercase">VOICE & VISION MEAL LOGGING</span>
+                <h3 class="text-xl font-bold tracking-tight text-brand-dark mt-1 group-hover:text-brand-secondary transition-colors">NutriTrack AI Platform</h3>
+                <p class="text-xs text-brand-secondary mt-2 leading-relaxed">
+                    Senior-focused nutrition platform featuring AI computer vision meal scanner, voice-assisted recording, calorie estimations, and automated caregiver alert triggers.
+                </p>
+                <div class="flex flex-wrap gap-2 mt-4 text-[11px] font-mono text-brand-secondary">
+                    <span class="px-2 py-0.5 rounded bg-brand-grayLight border border-brand-border">Voice AI</span>
+                    <span class="px-2 py-0.5 rounded bg-brand-grayLight border border-brand-border">Computer Vision</span>
+                    <span class="px-2 py-0.5 rounded bg-brand-grayLight border border-brand-border">Caregiver Alerts</span>
+                </div>
+            </div>
+            <div class="px-6 pb-6 pt-2 border-t border-brand-border flex justify-between items-center">
+                <span class="text-xs font-mono text-brand-muted">Accessibility</span>
+                <button onclick="openModal('nutritrack')" class="text-xs font-mono uppercase font-bold text-brand-dark hover:underline">Specs &rarr;</button>
+            </div>
+        </div>
+
+        <!-- Project 4: Retail Analytics -->
+        <div class="project-card group bg-white rounded-2xl border border-brand-border overflow-hidden hover-lift flex flex-col justify-between" data-category="ai-ml">
+            <div class="h-56 bg-brand-grayLight overflow-hidden relative">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80"
+                     alt="Retail Analytics ML"
+                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <span class="absolute top-4 right-4 px-3 py-1 rounded-full bg-brand-lime text-brand-dark font-mono text-[10px] font-bold shadow-sm">
+                        R² = 0.948
+                    </span>
+            </div>
+            <div class="p-6">
+                <span class="text-[10px] font-mono tracking-widest text-brand-secondary uppercase">TIME-SERIES FORECASTING (SDG 12)</span>
+                <h3 class="text-xl font-bold tracking-tight text-brand-dark mt-1 group-hover:text-brand-secondary transition-colors">Retail Analytics ML Engine</h3>
+                <p class="text-xs text-brand-secondary mt-2 leading-relaxed">
+                    Data science system fusing 3 Walmart datasets (421,000+ records) to minimize retail waste. Benchmarked SARIMA, LSTM/GRU deep learning models against XGBoost.
+                </p>
+                <div class="flex flex-wrap gap-2 mt-4 text-[11px] font-mono text-brand-secondary">
+                    <span class="px-2 py-0.5 rounded bg-brand-grayLight border border-brand-border">XGBoost</span>
+                    <span class="px-2 py-0.5 rounded bg-brand-grayLight border border-brand-border">LSTM / GRU</span>
+                    <span class="px-2 py-0.5 rounded bg-brand-grayLight border border-brand-border">SARIMA</span>
+                </div>
+            </div>
+            <div class="px-6 pb-6 pt-2 border-t border-brand-border flex justify-between items-center">
+                <span class="text-xs font-mono text-brand-muted">Data Science</span>
+                <button onclick="openModal('retail')" class="text-xs font-mono uppercase font-bold text-brand-dark hover:underline">Specs &rarr;</button>
+            </div>
+        </div>
+
+        <!-- Project 5: Smart Home Hazard System -->
+        <div class="project-card group bg-white rounded-2xl border border-brand-border overflow-hidden hover-lift flex flex-col justify-between" data-category="iot">
+            <div class="h-56 bg-brand-grayLight overflow-hidden relative">
+                <img src="https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=800&q=80"
+                     alt="Smart Home Hazard System"
+                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            </div>
+            <div class="p-6">
+                <span class="text-[10px] font-mono tracking-widest text-brand-secondary uppercase">EMBEDDED HARDWARE & CLOUD DASHBOARD</span>
+                <h3 class="text-xl font-bold tracking-tight text-brand-dark mt-1 group-hover:text-brand-secondary transition-colors">Smart Home Hazard System</h3>
+                <p class="text-xs text-brand-secondary mt-2 leading-relaxed">
+                    ESP32 microcontroller integration with DHT11, MQ-2, MQ-7, and rain sensors paired with automated servo actuators and Spring Boot cloud telemetry REST APIs.
+                </p>
+                <div class="flex flex-wrap gap-2 mt-4 text-[11px] font-mono text-brand-secondary">
+                    <span class="px-2 py-0.5 rounded bg-brand-grayLight border border-brand-border">ESP32 / C++</span>
+                    <span class="px-2 py-0.5 rounded bg-brand-grayLight border border-brand-border">Spring Boot</span>
+                    <span class="px-2 py-0.5 rounded bg-brand-grayLight border border-brand-border">Sensors</span>
+                </div>
+            </div>
+            <div class="px-6 pb-6 pt-2 border-t border-brand-border flex justify-between items-center">
+                <span class="text-xs font-mono text-brand-muted">IoT System</span>
+                <button onclick="openModal('smarthome')" class="text-xs font-mono uppercase font-bold text-brand-dark hover:underline">Specs &rarr;</button>
+            </div>
+        </div>
+
+        <!-- Project 6: Intrusion Detection Lab -->
+        <div class="project-card group bg-white rounded-2xl border border-brand-border overflow-hidden hover-lift flex flex-col justify-between" data-category="iot">
+            <div class="h-56 bg-brand-grayLight overflow-hidden relative">
+                <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80"
+                     alt="NIDS HIDS Cybersecurity Lab"
+                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            </div>
+            <div class="p-6">
+                <span class="text-[10px] font-mono tracking-widest text-brand-secondary uppercase">CYBERSECURITY & SIEM LAB</span>
+                <h3 class="text-xl font-bold tracking-tight text-brand-dark mt-1 group-hover:text-brand-secondary transition-colors">NIDS / HIDS Defense Lab</h3>
+                <p class="text-xs text-brand-secondary mt-2 leading-relaxed">
+                    Architected isolated virtual network on VMware with Snort, Suricata signature rules, Wazuh HIDS Windows log agents, and Splunk SIEM threat monitoring dashboards.
+                </p>
+                <div class="flex flex-wrap gap-2 mt-4 text-[11px] font-mono text-brand-secondary">
+                    <span class="px-2 py-0.5 rounded bg-brand-grayLight border border-brand-border">Snort / Suricata</span>
+                    <span class="px-2 py-0.5 rounded bg-brand-grayLight border border-brand-border">Wazuh HIDS</span>
+                    <span class="px-2 py-0.5 rounded bg-brand-grayLight border border-brand-border">Splunk</span>
+                </div>
+            </div>
+            <div class="px-6 pb-6 pt-2 border-t border-brand-border flex justify-between items-center">
+                <span class="text-xs font-mono text-brand-muted">Cybersecurity</span>
+                <button onclick="openModal('nids')" class="text-xs font-mono uppercase font-bold text-brand-dark hover:underline">Specs &rarr;</button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section id="philosophy" class="py-24 bg-brand-grayLight/50 border-y border-brand-border">
+    <div class="max-w-5xl mx-auto px-6 lg:px-12 text-center">
+
+        <!-- Eyebrow -->
+        <span class="font-serif italic text-2xl text-brand-dark block mb-2">Hello!</span>
+
+        <!-- Main Statement -->
+        <h2 class="text-2xl sm:text-4xl md:text-5xl font-light text-brand-dark leading-snug tracking-tight max-w-3xl mx-auto">
+            I blend technical precision, <span class="text-brand-secondary">thoughtful machine learning strategy</span>, and empathy to build software that solves real human problems.
+        </h2>
+
+        <!-- Search Skill Interactive Input Bar -->
+        <div class="mt-10 max-w-md mx-auto relative">
+            <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-brand-muted text-xs"></i>
+            <input type="text" id="skill-search" placeholder="Search my stack (e.g. Python, React, C#, SQL, Snort)..."
+                   class="w-full pl-10 pr-4 py-3 rounded-full bg-white border border-brand-border text-xs text-brand-dark focus:outline-none focus:border-brand-dark shadow-soft font-mono transition-colors">
+        </div>
+
+        <!-- Categorized Technical Skill Pills -->
+        <div class="mt-8 flex flex-wrap justify-center gap-2.5 max-w-4xl mx-auto" id="skills-cloud">
+            <!-- Programming Languages -->
+            <span class="skill-tag px-3.5 py-2 rounded-full bg-white border border-brand-border text-xs font-medium text-brand-dark shadow-sm flex items-center gap-2 hover:border-brand-limeBright transition-all">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500"></span> Python
+                </span>
+            <span class="skill-tag px-3.5 py-2 rounded-full bg-white border border-brand-border text-xs font-medium text-brand-dark shadow-sm flex items-center gap-2 hover:border-brand-limeBright transition-all">
+                    <span class="w-2 h-2 rounded-full bg-amber-500"></span> Java (OOP & Lab Demonstrator)
+                </span>
+            <span class="skill-tag px-3.5 py-2 rounded-full bg-white border border-brand-border text-xs font-medium text-brand-dark shadow-sm flex items-center gap-2 hover:border-brand-limeBright transition-all">
+                    <span class="w-2 h-2 rounded-full bg-purple-500"></span> C# / .NET Automation
+                </span>
+            <span class="skill-tag px-3.5 py-2 rounded-full bg-white border border-brand-border text-xs font-medium text-brand-dark shadow-sm flex items-center gap-2 hover:border-brand-limeBright transition-all">
+                    <span class="w-2 h-2 rounded-full bg-blue-500"></span> Embedded C++
+                </span>
+            <span class="skill-tag px-3.5 py-2 rounded-full bg-white border border-brand-border text-xs font-medium text-brand-dark shadow-sm flex items-center gap-2 hover:border-brand-limeBright transition-all">
+                    <span class="w-2 h-2 rounded-full bg-cyan-500"></span> SQL Queries & Relational DBs
+                </span>
+            <span class="skill-tag px-3.5 py-2 rounded-full bg-white border border-brand-border text-xs font-medium text-brand-dark shadow-sm flex items-center gap-2 hover:border-brand-limeBright transition-all">
+                    <span class="w-2 h-2 rounded-full bg-yellow-500"></span> JavaScript (ES6+)
+                </span>
+
+            <!-- Web Frameworks & Backend -->
+            <span class="skill-tag px-3.5 py-2 rounded-full bg-white border border-brand-border text-xs font-medium text-brand-dark shadow-sm flex items-center gap-2 hover:border-brand-limeBright transition-all">
+                    <span class="w-2 h-2 rounded-full bg-brand-limeBright"></span> Full-Stack React.js
+                </span>
+            <span class="skill-tag px-3.5 py-2 rounded-full bg-white border border-brand-border text-xs font-medium text-brand-dark shadow-sm flex items-center gap-2 hover:border-brand-limeBright transition-all">
+                    <span class="w-2 h-2 rounded-full bg-green-500"></span> Node.js / Express
+                </span>
+            <span class="skill-tag px-3.5 py-2 rounded-full bg-white border border-brand-border text-xs font-medium text-brand-dark shadow-sm flex items-center gap-2 hover:border-brand-limeBright transition-all">
+                    <span class="w-2 h-2 rounded-full bg-emerald-600"></span> Spring Boot REST APIs
+                </span>
+
+            <!-- AI, Data Science & Machine Learning -->
+            <span class="skill-tag px-3.5 py-2 rounded-full bg-white border border-brand-border text-xs font-medium text-brand-dark shadow-sm flex items-center gap-2 hover:border-brand-limeBright transition-all">
+                    <span class="w-2 h-2 rounded-full bg-teal-500"></span> XGBoost Predictive Models
+                </span>
+            <span class="skill-tag px-3.5 py-2 rounded-full bg-white border border-brand-border text-xs font-medium text-brand-dark shadow-sm flex items-center gap-2 hover:border-brand-limeBright transition-all">
+                    <span class="w-2 h-2 rounded-full bg-indigo-500"></span> Time-Series (LSTM / GRU / SARIMA)
+                </span>
+            <span class="skill-tag px-3.5 py-2 rounded-full bg-white border border-brand-border text-xs font-medium text-brand-dark shadow-sm flex items-center gap-2 hover:border-brand-limeBright transition-all">
+                    <span class="w-2 h-2 rounded-full bg-violet-500"></span> Computer Vision Image Classifier
+                </span>
+
+            <!-- Databases, IoT & Cybersecurity -->
+            <span class="skill-tag px-3.5 py-2 rounded-full bg-white border border-brand-border text-xs font-medium text-brand-dark shadow-sm flex items-center gap-2 hover:border-brand-limeBright transition-all">
+                    <span class="w-2 h-2 rounded-full bg-green-600"></span> MongoDB NoSQL
+                </span>
+            <span class="skill-tag px-3.5 py-2 rounded-full bg-white border border-brand-border text-xs font-medium text-brand-dark shadow-sm flex items-center gap-2 hover:border-brand-limeBright transition-all">
+                    <span class="w-2 h-2 rounded-full bg-red-500"></span> Oracle Database
+                </span>
+            <span class="skill-tag px-3.5 py-2 rounded-full bg-white border border-brand-border text-xs font-medium text-brand-dark shadow-sm flex items-center gap-2 hover:border-brand-limeBright transition-all">
+                    <span class="w-2 h-2 rounded-full bg-sky-500"></span> ESP32 Microcontrollers & Sensors
+                </span>
+            <span class="skill-tag px-3.5 py-2 rounded-full bg-white border border-brand-border text-xs font-medium text-brand-dark shadow-sm flex items-center gap-2 hover:border-brand-limeBright transition-all">
+                    <span class="w-2 h-2 rounded-full bg-rose-500"></span> Snort, Wazuh & Splunk SIEM
+                </span>
+
+            <!-- UI/UX Design & HCI Research -->
+            <span class="skill-tag px-3.5 py-2 rounded-full bg-white border border-brand-border text-xs font-medium text-brand-dark shadow-sm flex items-center gap-2 hover:border-brand-limeBright transition-all">
+                    <span class="w-2 h-2 rounded-full bg-pink-500"></span> Figma UI/UX Prototyping
+                </span>
+            <span class="skill-tag px-3.5 py-2 rounded-full bg-white border border-brand-border text-xs font-medium text-brand-dark shadow-sm flex items-center gap-2 hover:border-brand-limeBright transition-all">
+                    <span class="w-2 h-2 rounded-full bg-orange-500"></span> System Usability Scale (SUS) Testing
+                </span>
+        </div>
+
+    </div>
+</section>
+
+<section id="process" class="py-24 max-w-7xl mx-auto px-6 lg:px-12 relative">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-xs font-mono uppercase tracking-widest text-brand-secondary block mb-2">OUR PROCESS EXPLAINED</span>
+        <h2 class="text-3xl sm:text-4xl font-light text-brand-dark">
+            Here's How <span class="font-serif italic font-normal">It Works</span>
+        </h2>
+    </div>
+
+    <!-- 3 Staggered Process Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
+
+        <!-- Process 01 -->
+        <div class="p-8 rounded-2xl bg-brand-grayLight/80 border border-brand-border hover-lift flex flex-col justify-between min-h-[260px] relative">
+            <div class="flex justify-between items-start">
+                <span class="text-4xl font-light text-brand-muted font-mono">01</span>
+                <span class="w-3 h-3 rounded-full bg-brand-limeBright shadow-glow"></span>
+            </div>
+            <div>
+                <h3 class="text-xl font-bold text-brand-dark">Discover & Research</h3>
+                <p class="text-xs text-brand-secondary mt-2 leading-relaxed">
+                    Understand end-user requirements, conduct empirical research (SUS benchmarking), and frame clear problem definitions.
+                </p>
+            </div>
+        </div>
+
+        <!-- Process 02 (Offset slightly upward / Robin Noguier style) -->
+        <div class="p-8 rounded-2xl bg-white border border-brand-border shadow-soft hover-lift md:-translate-y-4 flex flex-col justify-between min-h-[260px] relative">
+            <div class="flex justify-between items-start">
+                <span class="text-4xl font-light text-brand-dark font-mono">02</span>
+                <span class="w-3 h-3 rounded-full bg-brand-dark"></span>
+            </div>
+            <div>
+                <h3 class="text-xl font-bold text-brand-dark">Architect & Design</h3>
+                <p class="text-xs text-brand-secondary mt-2 leading-relaxed">
+                    Translate insights into scalable backend APIs, optimized time-series ML models, and intuitive interface wireframes.
+                </p>
+            </div>
+        </div>
+
+        <!-- Process 03 -->
+        <div class="p-8 rounded-2xl bg-brand-grayLight/80 border border-brand-border hover-lift flex flex-col justify-between min-h-[260px] relative">
+            <div class="flex justify-between items-start">
+                <span class="text-4xl font-light text-brand-muted font-mono">03</span>
+                <span class="w-3 h-3 rounded-full bg-brand-limeBright shadow-glow"></span>
+            </div>
+            <div>
+                <h3 class="text-xl font-bold text-brand-dark">Deliver & Validate</h3>
+                <p class="text-xs text-brand-secondary mt-2 leading-relaxed">
+                    Execute automated testing, deploy cloud microservices, evaluate performance metrics ($R^2$, accuracy), and iterate.
+                </p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="py-20 bg-white border-y border-brand-border">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 divide-y md:divide-y-0 md:divide-x divide-brand-border">
+
+            <!-- Recommendation 1 -->
+            <div class="pr-0 md:pr-8 pt-6 md:pt-0">
+                <span class="font-serif italic text-4xl text-brand-muted font-light leading-none">“</span>
+                <p class="text-sm text-brand-dark italic leading-relaxed font-serif text-lg -mt-3">
+                    Felicia Choo consistently demonstrates outstanding analytical rigor, technical leadership in data mining, and exceptional academic commitment.
+                </p>
+                <div class="mt-6 flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-brand-limePale border border-brand-lime flex items-center justify-center font-bold text-xs text-brand-dark">
+                        NM
+                    </div>
+                    <div>
+                        <div class="text-xs font-bold text-brand-dark">Prof. Madya Datin Dr. Norwati Mustapha</div>
+                        <div class="text-[11px] font-mono text-brand-secondary">Associate Professor @ UPM</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recommendation 2 -->
+            <div class="pl-0 md:pl-8 pt-6 md:pt-0">
+                <span class="font-serif italic text-4xl text-brand-muted font-light leading-none">“</span>
+                <p class="text-sm text-brand-dark italic leading-relaxed font-serif text-lg -mt-3">
+                    Her work across intelligent computing, software development, and UI design reflects true dedication to excellence and social impact.
+                </p>
+                <div class="mt-6 flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-brand-grayLight border border-brand-border flex items-center justify-center font-bold text-xs text-brand-dark">
+                        NS
+                    </div>
+                    <div>
+                        <div class="text-xs font-bold text-brand-dark">Nurfadhlina Binti Mohd Sharef</div>
+                        <div class="text-[11px] font-mono text-brand-secondary">Chief Digital Officer @ UPM</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section id="about" class="py-24 max-w-7xl mx-auto px-6 lg:px-12">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+
+        <!-- Left Column: Identity & Bio Card -->
+        <div class="lg:col-span-5 space-y-6">
+            <span class="text-xs font-mono uppercase tracking-widest text-brand-secondary block">WHO AM I</span>
+            <h2 class="text-3xl sm:text-5xl font-light text-brand-dark leading-tight">
+                Building Intelligent Systems <span class="font-serif italic font-normal">Since 2022</span>
+            </h2>
+
+            <div class="p-6 rounded-2xl bg-brand-grayLight border border-brand-border space-y-4">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80"
+                     alt="Felicia Choo Working"
+                     class="w-full h-48 object-cover rounded-xl filter grayscale">
+                <div>
+                    <div class="text-sm font-bold text-brand-dark">Felicia Choo</div>
+                    <div class="text-xs font-mono text-brand-secondary">Computer Science Student & Software Engineer</div>
+                </div>
+                <p class="text-xs text-brand-secondary leading-relaxed">
+                    Currently completing my Bachelor’s in Computer Science at Universiti Putra Malaysia with a cumulative GPA of 3.90/4.00. Former software intern at Coherent Inc.
+                </p>
+                <div class="pt-2 flex items-center gap-4 text-brand-dark text-sm">
+                    <a href="mailto:feliciachoo04@gmail.com" class="hover:text-brand-secondary"><i class="fa-solid fa-envelope"></i></a>
+                    <a href="tel:+601113281812" class="hover:text-brand-secondary"><i class="fa-solid fa-phone"></i></a>
+                    <a href="https://github.com" target="_blank" class="hover:text-brand-secondary"><i class="fa-brands fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column: Experience Timeline -->
+        <div class="lg:col-span-7 space-y-8">
+            <span class="text-xs font-mono uppercase tracking-widest text-brand-secondary block">EXPERIENCE & ROLES</span>
+
+            <div class="space-y-6 divide-y divide-brand-border">
+
+                <!-- Coherent Internship -->
+                <div class="pt-6 first:pt-0 space-y-3">
+                    <div class="flex flex-wrap justify-between items-start gap-2">
+                        <div>
+                            <h3 class="text-lg font-bold text-brand-dark">Coherent Sdn. Bhd.</h3>
+                            <div class="text-xs font-mono text-brand-secondary">Testing & Development Intern</div>
+                        </div>
+                        <span class="px-3 py-1 rounded-full bg-brand-grayLight border border-brand-border text-[11px] font-mono text-brand-secondary">
+                                Jul 2026 – Oct 2026
+                            </span>
+                    </div>
+                    <p class="text-xs text-brand-secondary leading-relaxed">
+                        Developed a C#/.NET Windows service that purges DCA/Traceview optical images older than 30 days while protecting core logs. Automated SQL database synchronization via C# DLL invocations. Operated ParTest, DCA, OSA, and temperature chambers.
+                    </p>
+                </div>
+
+                <!-- Academic Demonstrator -->
+                <div class="pt-6 space-y-3">
+                    <div class="flex flex-wrap justify-between items-start gap-2">
+                        <div>
+                            <h3 class="text-lg font-bold text-brand-dark">UPM Computer Science Department</h3>
+                            <div class="text-xs font-mono text-brand-secondary">Part-Time Lab Demonstrator</div>
+                        </div>
+                        <span class="px-3 py-1 rounded-full bg-brand-grayLight border border-brand-border text-[11px] font-mono text-brand-secondary">
+                                Part-Time
+                            </span>
+                    </div>
+                    <p class="text-xs text-brand-secondary leading-relaxed">
+                        Guided undergraduates through OOP paradigms (polymorphism, generics) in Java labs (CCS3101) and relational SQL database queries (CSC3007).
+                    </p>
+                </div>
+
+                <!-- CodeWhiz Instructor -->
+                <div class="pt-6 space-y-3">
+                    <div class="flex flex-wrap justify-between items-start gap-2">
+                        <div>
+                            <h3 class="text-lg font-bold text-brand-dark">CodeWhiz Coding Center</h3>
+                            <div class="text-xs font-mono text-brand-secondary">Programming Teacher</div>
+                        </div>
+                        <span class="px-3 py-1 rounded-full bg-brand-grayLight border border-brand-border text-[11px] font-mono text-brand-secondary">
+                                Jun 2025 – Oct 2026
+                            </span>
+                    </div>
+                    <p class="text-xs text-brand-secondary leading-relaxed">
+                        Designed and delivered interactive programming curricula in Python and Scratch for primary and secondary students, fostering foundational algorithm design skills.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Verified Certifications Grid -->
+            <div class="pt-6 border-t border-brand-border">
+                <h4 class="text-xs font-mono uppercase tracking-widest text-brand-secondary mb-4">VERIFIED CERTIFICATIONS</h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-mono">
+                    <div class="p-3 rounded-xl bg-brand-grayLight border border-brand-border flex items-center gap-3">
+                        <i class="fa-brands fa-google text-brand-dark"></i>
+                        <div>
+                            <div class="font-bold text-brand-dark">Google Cybersecurity</div>
+                            <div class="text-[10px] text-brand-secondary">Career Certificate</div>
+                        </div>
+                    </div>
+                    <div class="p-3 rounded-xl bg-brand-grayLight border border-brand-border flex items-center gap-3">
+                        <i class="fa-solid fa-trophy text-amber-500"></i>
+                        <div>
+                            <div class="font-bold text-brand-dark">PIITRAM 2023 Gold</div>
+                            <div class="text-[10px] text-brand-secondary">Innovation Honors</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<section id="contact" class="relative py-28 bg-white border-t border-brand-border overflow-hidden">
+
+    <!-- Wide Top Lime Radial Glow -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] radial-lime-cta pointer-events-none z-0"></div>
+
+    <div class="max-w-4xl mx-auto px-6 text-center relative z-10 space-y-6">
+            <span class="px-4 py-1.5 rounded-full bg-brand-limePale border border-brand-lime text-brand-dark text-xs font-mono font-bold uppercase">
+                Let's Work Together
+            </span>
+        <h2 class="text-4xl sm:text-6xl font-light tracking-tight text-brand-dark">
+            Let's Make It <span class="font-serif italic font-normal text-brand-dark">Happen.</span>
+        </h2>
+        <p class="text-sm text-brand-secondary max-w-lg mx-auto leading-relaxed">
+            Open to discussions regarding Software Engineering, Full-Stack Development, and AI/ML Specialist roles.
+        </p>
+
+        <div class="pt-4 flex flex-wrap justify-center gap-4">
+            <button onclick="copyEmail()" class="px-8 py-3.5 rounded-full bg-brand-dark text-white font-bold text-xs uppercase tracking-wider hover:bg-black transition-all shadow-soft flex items-center gap-3">
+                <i class="fa-regular fa-copy text-brand-limeBright"></i>
+                <span id="copy-text">Copy Email Address</span>
+            </button>
+            <a href="mailto:feliciachoo04@gmail.com" class="px-8 py-3.5 rounded-full border border-brand-border hover:bg-brand-grayLight font-bold text-xs uppercase tracking-wider text-brand-dark transition-all">
+                Send Direct Email &rarr;
+            </a>
+        </div>
+
+        <div class="pt-8 text-xs font-mono text-brand-secondary">
+            feliciachoo04@gmail.com • +60 11-1328 1812 • Serdang, Selangor, Malaysia
+        </div>
+    </div>
+</section>
+
+<footer class="py-12 bg-white border-t border-brand-border overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 space-y-12">
+
+        <div class="flex flex-col sm:flex-row justify-between items-center text-xs font-mono text-brand-secondary gap-4">
+            <div>© 2026 Felicia Choo. ALL RIGHTS RESERVED.</div>
+            <div class="flex space-x-6">
+                <a href="#hero" class="hover:text-brand-dark">Back to Top</a>
+                <a href="https://github.com" target="_blank" class="hover:text-brand-dark">GitHub</a>
+                <a href="mailto:feliciachoo04@gmail.com" class="hover:text-brand-dark">Email</a>
+            </div>
+        </div>
+
+        <!-- Oversized Personal Wordmark (Robin Noguier signature look) -->
+        <div class="w-full overflow-hidden select-none">
+            <h1 class="font-serif italic text-[12vw] leading-none font-bold text-brand-dark tracking-tighter opacity-90 whitespace-nowrap -ml-2">
+                Felicia Choo
+            </h1>
+        </div>
+
+    </div>
+</footer>
+
+<div id="project-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-2xl w-full p-8 max-h-[90vh] overflow-y-auto relative border border-brand-border shadow-2xl space-y-6">
+        <button onclick="closeModal()" class="absolute top-6 right-6 w-9 h-9 rounded-full bg-brand-grayLight flex items-center justify-center text-brand-dark hover:bg-brand-dark hover:text-white transition-colors">
+            <i class="fa-solid fa-xmark text-sm"></i>
+        </button>
+        <div id="modal-content">
+            <!-- Dynamic Content Injected via JavaScript -->
+        </div>
+    </div>
+</div>
+
+<script>
+    function copyEmail() {
+        const email = 'feliciachoo04@gmail.com';
+        const tempInput = document.createElement('input');
+        tempInput.value = email;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand('copy');
+        document.body.removeChild(tempInput);
+
+        const copyTextBtn = document.getElementById('copy-text');
+        copyTextBtn.innerText = 'Email Copied!';
+        setTimeout(() => {
+            copyTextBtn.innerText = 'Copy Email Address';
+        }, 2500);
+    }
+
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+
+    const skillInput = document.getElementById('skill-search');
+    const skillCloud = document.getElementById('skills-cloud');
+    if (skillInput) {
+        skillInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase().trim();
+            const tags = skillCloud.querySelectorAll('.skill-tag');
+            tags.forEach(tag => {
+                const text = tag.textContent.toLowerCase();
+                tag.style.display = text.includes(query) ? 'inline-flex' : 'none';
+            });
+        });
+    }
+
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => {
+                b.classList.remove('bg-brand-dark', 'text-white', 'font-bold');
+                b.classList.add('border', 'border-brand-border', 'text-brand-secondary');
+            });
+
+            btn.classList.add('bg-brand-dark', 'text-white', 'font-bold');
+            btn.classList.remove('border', 'border-brand-border', 'text-brand-secondary');
+
+            const filter = btn.getAttribute('data-filter');
+            projectCards.forEach(card => {
+                const category = card.getAttribute('data-category');
+                if (filter === 'all' || category.includes(filter)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+
+    const projectSpecs = {
+        g2g: {
+            title: "Gadget2Go (G2G)",
+            subtitle: "Used-Gadget Marketplace & AI Valuation Engine",
+            tags: ["React", "Python", "MongoDB", "Node.js"],
+            details: [
+                "Full-stack architecture engineered with React frontend and Python microservice backend connected to MongoDB.",
+                "Designed automated AI valuation model calculating device market value based on condition, warranty status, and deprecation factors.",
+                "Integrated multi-role authentication for buyers, private sellers, and certified second-hand electronics dealers."
+            ]
+        },
+        sproutly: {
+            title: "Sproutly Mobile App",
+            subtitle: "Smart Gardening Companion & AI Vision Diagnostics",
+            tags: ["Figma UI/UX", "AI Plant Vision", "HCI Principles", "SUS Grade A"],
+            details: [
+                "Conducted qualitative and quantitative user research with 22 participants to inform usability and interaction design.",
+                "Achieved outstanding System Usability Scale (SUS) score of 90.91 (Grade A).",
+                "Integrated AI leaf photo diagnostics providing immediate identification, confidence scoring, and treatment advice."
+            ]
+        },
+        nutritrack: {
+            title: "NutriTrack AI Platform",
+            subtitle: "Elderly Health & Automated Nutrition Tracking",
+            tags: ["Voice AI", "Computer Vision", "Senior UX", "Real-Time Alerts"],
+            details: [
+                "Specially engineered for senior citizen accessibility with high-contrast UI and large readable typography.",
+                "Features computer vision meal photo scanner and voice recording transcription for seamless meal logging.",
+                "Automates caregiver alerts when critical caloric or nutritional deficits occur over consecutive days."
+            ]
+        },
+        retail: {
+            title: "Retail Analytics ML Engine",
+            subtitle: "Walmart Inventory Optimization & Waste Reduction",
+            tags: ["Python", "XGBoost", "LSTM / GRU", "SARIMA"],
+            details: [
+                "Fused 3 Walmart retail datasets (421,000+ total rows) to optimize supply chain inventory (SDG 12).",
+                "Evaluated SARIMA, LSTM/GRU deep learning networks and XGBoost algorithms.",
+                "Achieved top performance with R² of 0.948 on weekly sales forecasts and 93.7% accuracy in demand classification."
+            ]
+        },
+        smarthome: {
+            title: "Smart Home Hazard System",
+            subtitle: "ESP32 Sensors & Spring Boot Cloud Dashboard",
+            tags: ["ESP32 / C++", "Spring Boot", "REST APIs", "Automated Servo"],
+            details: [
+                "Integrated DHT11 (temp/humidity), MQ-2 (smoke/gas), MQ-7 (CO), and rain sensors into ESP32 microcontroller array.",
+                "Programmed C++ embedded firmware controlling automated window closure servos and emergency alerts.",
+                "Transmitted live sensor telemetries to Spring Boot backend connected to interactive web dashboard."
+            ]
+        },
+        nids: {
+            title: "NIDS / HIDS Cyber Defense Lab",
+            subtitle: "Snort, Suricata, Wazuh & Splunk SIEM Infrastructure",
+            tags: ["Snort / Suricata", "Wazuh HIDS", "Splunk SIEM", "Kali Linux"],
+            details: [
+                "Architected virtualized network lab in VMware utilizing Kali Linux and Metasploitable 2 targets.",
+                "Wrote customized Snort and Suricata signature rules for network anomaly detection.",
+                "Centralized host logs with Wazuh HIDS into Splunk SIEM dashboards for incident monitoring and investigation."
+            ]
+        }
+    };
+
+    const modal = document.getElementById('project-modal');
+    const modalContent = document.getElementById('modal-content');
+
+    function openModal(key) {
+        const spec = projectSpecs[key];
+        if (!spec) return;
+
+        modalContent.innerHTML = `
+            <div class="space-y-4">
+                <span class="text-xs font-mono text-brand-secondary uppercase tracking-widest">TECHNICAL SPECIFICATION</span>
+                <h3 class="text-2xl font-bold text-brand-dark">${spec.title}</h3>
+                <p class="text-xs font-mono text-brand-secondary">${spec.subtitle}</p>
+
+                <div class="flex flex-wrap gap-2 pt-2">
+                    ${spec.tags.map(t => `<span class="px-2.5 py-1 rounded-md bg-brand-grayLight border border-brand-border text-xs font-mono text-brand-dark">${t}</span>`).join('')}
+                </div>
+
+                <div class="border-t border-brand-border pt-4 mt-4 space-y-3">
+                    <h4 class="font-mono text-xs text-brand-dark uppercase font-semibold">Key Architecture Highlights:</h4>
+                    <ul class="text-xs text-brand-secondary space-y-2 list-disc list-inside leading-relaxed">
+                        ${spec.details.map(d => `<li>${d}</li>`).join('')}
+                    </ul>
+                </div>
+
+                <div class="pt-6 text-right">
+                    <button onclick="closeModal()" class="px-6 py-2.5 rounded-full bg-brand-dark text-white font-bold text-xs font-mono uppercase hover:bg-black transition-colors">
+                        Close Preview
+                    </button>
+                </div>
+            </div>
+        `;
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+    }
+
+    function closeModal() {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+    }
+
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+</script>
+</body>
+</html>
