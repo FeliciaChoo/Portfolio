@@ -449,322 +449,332 @@
     </div>
 </section>
 
-<!-- CAPABILITIES, SKILLS & CERTIFICATIONS SECTION -->
+
+<!-- CAPABILITIES & CERTIFICATIONS SECTION -->
 <section id="philosophy" class="py-24 bg-brand-grayLight/50 border-y border-brand-border">
     <div class="max-w-7xl mx-auto px-6 lg:px-12">
 
-        <!-- Section Eyebrow & Core Headline -->
-        <div class="text-center max-w-3xl mx-auto mb-16">
-            <span class="font-serif italic text-2xl text-brand-dark block mb-2">Capabilities & Qualifications</span>
-            <h2 class="text-2xl sm:text-4xl md:text-5xl font-light text-brand-dark leading-snug tracking-tight">
-                Combining technical rigor, <span class="text-brand-secondary">applied AI strategy</span>, and practical credentials.
+        <!-- Centered Main Title -->
+        <div class="text-center max-w-3xl mx-auto mb-10">
+            <span class="font-serif italic text-2xl sm:text-3xl text-brand-dark block mb-2">Capabilities & Qualifications</span>
+            <h2 class="text-3xl sm:text-5xl font-light text-brand-dark leading-tight tracking-tight">
+                Verified Credentials, <span class="text-brand-secondary">Awards & Certifications</span>
             </h2>
         </div>
 
-        <!-- Part 1: Interactive Stack & Skills Search -->
-        <div class="mb-20">
-            <div class="max-w-md mx-auto relative mb-8">
-                <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-brand-muted text-xs"></i>
-                <input type="text" id="skill-search" placeholder="Search my stack (e.g. Python, React, Cybersecurity, Figma)..."
-                       class="w-full pl-10 pr-4 py-3 rounded-full bg-white border border-brand-border text-xs text-brand-dark focus:outline-none focus:border-brand-dark shadow-soft font-mono transition-colors">
-            </div>
-
-            <div class="flex flex-wrap justify-center gap-2.5 max-w-4xl mx-auto" id="skills-cloud">
-                <span class="skill-tag px-3.5 py-2 rounded-full bg-white border border-brand-border text-xs font-medium text-brand-dark shadow-sm flex items-center gap-2 hover:border-brand-limeBright transition-all">
-                    <span class="w-2 h-2 rounded-full bg-emerald-500"></span> Python
-                </span>
-                <span class="skill-tag px-3.5 py-2 rounded-full bg-white border border-brand-border text-xs font-medium text-brand-dark shadow-sm flex items-center gap-2 hover:border-brand-limeBright transition-all">
-                    <span class="w-2 h-2 rounded-full bg-amber-500"></span> Java (OOP)
-                </span>
-                <span class="skill-tag px-3.5 py-2 rounded-full bg-white border border-brand-border text-xs font-medium text-brand-dark shadow-sm flex items-center gap-2 hover:border-brand-limeBright transition-all">
-                    <span class="w-2 h-2 rounded-full bg-purple-500"></span> C# / .NET
-                </span>
-                <span class="skill-tag px-3.5 py-2 rounded-full bg-white border border-brand-border text-xs font-medium text-brand-dark shadow-sm flex items-center gap-2 hover:border-brand-limeBright transition-all">
-                    <span class="w-2 h-2 rounded-full bg-blue-500"></span> Embedded C++
-                </span>
-                <span class="skill-tag px-3.5 py-2 rounded-full bg-white border border-brand-border text-xs font-medium text-brand-dark shadow-sm flex items-center gap-2 hover:border-brand-limeBright transition-all">
-                    <span class="w-2 h-2 rounded-full bg-cyan-500"></span> SQL & Databases
-                </span>
-                <span class="skill-tag px-3.5 py-2 rounded-full bg-white border border-brand-border text-xs font-medium text-brand-dark shadow-sm flex items-center gap-2 hover:border-brand-limeBright transition-all">
-                    <span class="w-2 h-2 rounded-full bg-brand-limeBright"></span> Full-Stack React.js
-                </span>
-            </div>
+        <!-- Centered Live Search Bar -->
+        <div class="max-w-md mx-auto relative mb-10">
+            <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-brand-muted text-xs"></i>
+            <input type="text" id="cert-search-input" onkeyup="filterCertifications()" placeholder="Search awards & certs (e.g., Gold Medal, Google, Hackathon, Figma)..."
+                   class="w-full pl-10 pr-4 py-3 rounded-full bg-white border border-brand-border text-xs text-brand-dark focus:outline-none focus:border-brand-dark shadow-soft font-mono transition-colors">
         </div>
 
-        <!-- Part 2: Categorized Credentials & Certificates -->
-        <div class="pt-12 border-t border-brand-border">
+        <!-- Centered Category Filter Tabs -->
+        <div class="flex flex-wrap justify-center gap-2 mb-12" id="cert-category-tabs">
+            <button onclick="switchCertTab('all')" id="tab-all" class="cert-tab active px-5 py-2 rounded-full text-xs font-mono uppercase tracking-wider transition-all bg-brand-dark text-white font-bold">ALL</button>
+            <button onclick="switchCertTab('competitions')" id="tab-competitions" class="cert-tab px-5 py-2 rounded-full text-xs font-mono uppercase tracking-wider border border-brand-border bg-white text-brand-secondary hover:text-brand-dark hover:border-brand-dark transition-all">COMPETITIONS</button>
+            <button onclick="switchCertTab('professional')" id="tab-professional" class="cert-tab px-5 py-2 rounded-full text-xs font-mono uppercase tracking-wider border border-brand-border bg-white text-brand-secondary hover:text-brand-dark hover:border-brand-dark transition-all">PROFESSIONAL CERTIFICATIONS</button>
+            <button onclick="switchCertTab('workshops')" id="tab-workshops" class="cert-tab px-5 py-2 rounded-full text-xs font-mono uppercase tracking-wider border border-brand-border bg-white text-brand-secondary hover:text-brand-dark hover:border-brand-dark transition-all">WORKSHOPS & BOOTCAMPS</button>
+        </div>
 
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
-                <div>
-                    <span class="text-xs font-mono uppercase tracking-widest text-brand-secondary block mb-2">VERIFIED CREDENTIALS</span>
-                    <h3 class="text-2xl sm:text-4xl font-light tracking-tight text-brand-dark">
-                        Certifications & <span class="font-serif italic font-normal">Achievements</span>
-                    </h3>
-                </div>
+        <!-- Credentials Grid (14 Cards Total) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="cert-grid">
 
-                <!-- Category Tabs -->
-                <div class="flex flex-wrap gap-2" id="cert-category-tabs">
-                    <button onclick="switchCertTab('all')" id="tab-all" class="cert-tab active px-4 py-2 rounded-full text-xs font-mono uppercase tracking-wider transition-all bg-brand-dark text-white font-bold">ALL</button>
-                    <button onclick="switchCertTab('competitions')" id="tab-competitions" class="cert-tab px-4 py-2 rounded-full text-xs font-mono uppercase tracking-wider border border-brand-border text-brand-secondary hover:text-brand-dark hover:border-brand-dark transition-all">COMPETITIONS</button>
-                    <button onclick="switchCertTab('professional')" id="tab-professional" class="cert-tab px-4 py-2 rounded-full text-xs font-mono uppercase tracking-wider border border-brand-border text-brand-secondary hover:text-brand-dark hover:border-brand-dark transition-all">PROFESSIONAL CERTIFICATIONS</button>
-                    <button onclick="switchCertTab('workshops')" id="tab-workshops" class="cert-tab px-4 py-2 rounded-full text-xs font-mono uppercase tracking-wider border border-brand-border text-brand-secondary hover:text-brand-dark hover:border-brand-dark transition-all">WORKSHOPS & BOOTCAMPS</button>
+            <!-- COMPETITIONS -->
+            <div class="cert-card p-6 rounded-2xl bg-white border border-brand-border shadow-soft flex flex-col justify-between space-y-4 hover-lift" data-cert-cat="competitions">
+                <div class="space-y-2">
+                    <div class="flex items-center justify-between">
+                        <span class="px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-900 border border-amber-300 text-[10px] font-mono font-bold uppercase flex items-center gap-1">
+                            <i class="fa-solid fa-trophy text-amber-600"></i> GOLD MEDAL
+                        </span>
+                        <span class="text-xs font-mono text-brand-muted">2026</span>
+                    </div>
+                    <h4 class="text-base font-bold text-brand-dark">PEDi COLLOQUIUM 2026</h4>
+                    <p class="text-xs text-brand-secondary">Gold Medal Award for the Gadget2Go (G2G) Used-Gadget Marketplace & AI Price Engine Project.</p>
                 </div>
+                <a href="certs/pedi.pdf" target="_blank" class="inline-flex items-center justify-between w-full pt-3 border-t border-brand-border text-xs font-mono font-bold text-brand-dark hover:text-brand-secondary transition-colors">
+                    <span>View Certificate</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                </a>
             </div>
 
-            <!-- Credentials Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="cert-grid">
-
-                <!-- 1. Competitions & Innovation Awards -->
-                <div class="cert-card p-6 rounded-2xl bg-white border border-brand-border shadow-soft flex flex-col justify-between space-y-4 hover-lift" data-cert-cat="competitions">
-                    <div class="space-y-2">
-                        <div class="flex items-center justify-between">
-                            <span class="px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-900 border border-amber-300 text-[10px] font-mono font-bold uppercase flex items-center gap-1">
-                                <i class="fa-solid fa-trophy text-amber-600"></i> GOLD MEDAL
-                            </span>
-                            <span class="text-xs font-mono text-brand-muted">2026</span>
-                        </div>
-                        <h4 class="text-base font-bold text-brand-dark">PEDi COLLOQUIUM 2026</h4>
-                        <p class="text-xs text-brand-secondary">Gold Medal Award for the Gadget2Go (G2G) Project.</p>
+            <div class="cert-card p-6 rounded-2xl bg-white border border-brand-border shadow-soft flex flex-col justify-between space-y-4 hover-lift" data-cert-cat="competitions">
+                <div class="space-y-2">
+                    <div class="flex items-center justify-between">
+                        <span class="px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-900 border border-amber-300 text-[10px] font-mono font-bold uppercase flex items-center gap-1">
+                            <i class="fa-solid fa-trophy text-amber-600"></i> GOLD MEDAL
+                        </span>
+                        <span class="text-xs font-mono text-brand-muted">2023</span>
                     </div>
-                    <a href="certs/pedi-colloquium-gold.pdf" target="_blank" class="inline-flex items-center justify-between w-full pt-3 border-t border-brand-border text-xs font-mono font-bold text-brand-dark hover:text-brand-secondary transition-colors">
-                        <span>View Certificate</span>
-                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-                    </a>
+                    <h4 class="text-base font-bold text-brand-dark">PIITRAM Innovation Competition</h4>
+                    <p class="text-xs text-brand-secondary">Gold Medal Award for innovative software engineering project demonstration.</p>
                 </div>
-
-                <div class="cert-card p-6 rounded-2xl bg-white border border-brand-border shadow-soft flex flex-col justify-between space-y-4 hover-lift" data-cert-cat="competitions">
-                    <div class="space-y-2">
-                        <div class="flex items-center justify-between">
-                            <span class="px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-900 border border-amber-300 text-[10px] font-mono font-bold uppercase flex items-center gap-1">
-                                <i class="fa-solid fa-trophy text-amber-600"></i> GOLD MEDAL
-                            </span>
-                            <span class="text-xs font-mono text-brand-muted">2023</span>
-                        </div>
-                        <h4 class="text-base font-bold text-brand-dark">PIITRAM Innovation Competition</h4>
-                        <p class="text-xs text-brand-secondary">Gold Medal Award for PIITRAM Innovation Project.</p>
-                    </div>
-                    <a href="certs/piitram-gold.pdf" target="_blank" class="inline-flex items-center justify-between w-full pt-3 border-t border-brand-border text-xs font-mono font-bold text-brand-dark hover:text-brand-secondary transition-colors">
-                        <span>View Certificate</span>
-                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-                    </a>
-                </div>
-
-                <div class="cert-card p-6 rounded-2xl bg-white border border-brand-border shadow-soft flex flex-col justify-between space-y-4 hover-lift" data-cert-cat="competitions">
-                    <div class="space-y-2">
-                        <div class="flex items-center justify-between">
-                            <span class="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-900 border border-emerald-300 text-[10px] font-mono font-bold uppercase">
-                                PITCH COMPETITION
-                            </span>
-                            <span class="text-xs font-mono text-brand-muted">KPT / CEM UPM</span>
-                        </div>
-                        <h4 class="text-base font-bold text-brand-dark">Top Agropreneur 2.0 IoT Pitch</h4>
-                        <p class="text-xs text-brand-secondary">Smart agriculture IoT incubator pitch competition.</p>
-                    </div>
-                    <a href="certs/top-agropreneur-pitch.pdf" target="_blank" class="inline-flex items-center justify-between w-full pt-3 border-t border-brand-border text-xs font-mono font-bold text-brand-dark hover:text-brand-secondary transition-colors">
-                        <span>View Certificate</span>
-                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-                    </a>
-                </div>
-
-                <div class="cert-card p-6 rounded-2xl bg-white border border-brand-border shadow-soft flex flex-col justify-between space-y-4 hover-lift" data-cert-cat="competitions">
-                    <div class="space-y-2">
-                        <div class="flex items-center justify-between">
-                            <span class="px-2.5 py-0.5 rounded-full bg-purple-100 text-purple-900 border border-purple-300 text-[10px] font-mono font-bold uppercase">
-                                HACKATHON
-                            </span>
-                            <span class="text-xs font-mono text-brand-muted">APUBCC</span>
-                        </div>
-                        <h4 class="text-base font-bold text-brand-dark">deVMatch Hackathon</h4>
-                        <p class="text-xs text-brand-secondary">Rapid prototyping and solution hackathon.</p>
-                    </div>
-                    <a href="certs/devmatch-hackathon.pdf" target="_blank" class="inline-flex items-center justify-between w-full pt-3 border-t border-brand-border text-xs font-mono font-bold text-brand-dark hover:text-brand-secondary transition-colors">
-                        <span>View Certificate</span>
-                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-                    </a>
-                </div>
-
-                <div class="cert-card p-6 rounded-2xl bg-white border border-brand-border shadow-soft flex flex-col justify-between space-y-4 hover-lift" data-cert-cat="competitions">
-                    <div class="space-y-2">
-                        <div class="flex items-center justify-between">
-                            <span class="px-2.5 py-0.5 rounded-full bg-purple-100 text-purple-900 border border-purple-300 text-[10px] font-mono font-bold uppercase">
-                                HACKATHON
-                            </span>
-                            <span class="text-xs font-mono text-brand-muted">Kolaxus</span>
-                        </div>
-                        <h4 class="text-base font-bold text-brand-dark">NexG GODAMLah 2.0 Hackathon</h4>
-                        <p class="text-xs text-brand-secondary">Software sprint hackathon under time constraints.</p>
-                    </div>
-                    <a href="certs/godamlah-hackathon.pdf" target="_blank" class="inline-flex items-center justify-between w-full pt-3 border-t border-brand-border text-xs font-mono font-bold text-brand-dark hover:text-brand-secondary transition-colors">
-                        <span>View Certificate</span>
-                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-                    </a>
-                </div>
-
-                <!-- 2. Professional Certifications -->
-                <div class="cert-card p-6 rounded-2xl bg-white border border-brand-border shadow-soft flex flex-col justify-between space-y-4 hover-lift" data-cert-cat="professional">
-                    <div class="space-y-2">
-                        <div class="flex items-center justify-between">
-                            <span class="px-2.5 py-0.5 rounded-full bg-brand-limePale text-brand-dark border border-brand-lime text-[10px] font-mono font-bold uppercase">
-                                PROFESSIONAL CERT
-                            </span>
-                            <span class="text-xs font-mono text-brand-muted">Google</span>
-                        </div>
-                        <h4 class="text-base font-bold text-brand-dark">Google Cybersecurity Certificate</h4>
-                        <p class="text-xs text-brand-secondary">Training in SIEM tools, network defense, Python, and Linux.</p>
-                    </div>
-                    <a href="certs/google-cybersecurity.pdf" target="_blank" class="inline-flex items-center justify-between w-full pt-3 border-t border-brand-border text-xs font-mono font-bold text-brand-dark hover:text-brand-secondary transition-colors">
-                        <span>View Certificate</span>
-                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-                    </a>
-                </div>
-
-                <div class="cert-card p-6 rounded-2xl bg-white border border-brand-border shadow-soft flex flex-col justify-between space-y-4 hover-lift" data-cert-cat="professional">
-                    <div class="space-y-2">
-                        <div class="flex items-center justify-between">
-                            <span class="px-2.5 py-0.5 rounded-full bg-brand-limePale text-brand-dark border border-brand-lime text-[10px] font-mono font-bold uppercase">
-                                CERTIFICATION
-                            </span>
-                            <span class="text-xs font-mono text-brand-muted">PutraMOOC</span>
-                        </div>
-                        <h4 class="text-base font-bold text-brand-dark">Data Analyst Certificate</h4>
-                        <p class="text-xs text-brand-secondary">Statistical modeling, EDA data analysis, and reporting.</p>
-                    </div>
-                    <a href="certs/data-analyst-mooc.pdf" target="_blank" class="inline-flex items-center justify-between w-full pt-3 border-t border-brand-border text-xs font-mono font-bold text-brand-dark hover:text-brand-secondary transition-colors">
-                        <span>View Certificate</span>
-                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-                    </a>
-                </div>
-
-                <!-- 3. Workshops & Bootcamps -->
-                <div class="cert-card p-6 rounded-2xl bg-white border border-brand-border shadow-soft flex flex-col justify-between space-y-4 hover-lift" data-cert-cat="workshops">
-                    <div class="space-y-2">
-                        <div class="flex items-center justify-between">
-                            <span class="px-2.5 py-0.5 rounded-full bg-brand-grayLight text-brand-dark border border-brand-border text-[10px] font-mono font-bold uppercase">
-                                WORKSHOP
-                            </span>
-                            <span class="text-xs font-mono text-brand-muted">Google Developer Group</span>
-                        </div>
-                        <h4 class="text-base font-bold text-brand-dark">Figma UI/UX Design</h4>
-                        <p class="text-xs text-brand-secondary">Interactive wireframing and prototyping.</p>
-                    </div>
-                    <a href="certs/figma-gdg.pdf" target="_blank" class="inline-flex items-center justify-between w-full pt-3 border-t border-brand-border text-xs font-mono font-bold text-brand-dark hover:text-brand-secondary transition-colors">
-                        <span>View Certificate</span>
-                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-                    </a>
-                </div>
-
-                <div class="cert-card p-6 rounded-2xl bg-white border border-brand-border shadow-soft flex flex-col justify-between space-y-4 hover-lift" data-cert-cat="workshops">
-                    <div class="space-y-2">
-                        <div class="flex items-center justify-between">
-                            <span class="px-2.5 py-0.5 rounded-full bg-brand-grayLight text-brand-dark border border-brand-border text-[10px] font-mono font-bold uppercase">
-                                WORKSHOP
-                            </span>
-                            <span class="text-xs font-mono text-brand-muted">Google Developer Group</span>
-                        </div>
-                        <h4 class="text-base font-bold text-brand-dark">Mobile App with AI Integration</h4>
-                        <p class="text-xs text-brand-secondary">Integrating ML vision model endpoints into mobile apps.</p>
-                    </div>
-                    <a href="certs/mobile-ai-gdg.pdf" target="_blank" class="inline-flex items-center justify-between w-full pt-3 border-t border-brand-border text-xs font-mono font-bold text-brand-dark hover:text-brand-secondary transition-colors">
-                        <span>View Certificate</span>
-                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-                    </a>
-                </div>
-
-                <div class="cert-card p-6 rounded-2xl bg-white border border-brand-border shadow-soft flex flex-col justify-between space-y-4 hover-lift" data-cert-cat="workshops">
-                    <div class="space-y-2">
-                        <div class="flex items-center justify-between">
-                            <span class="px-2.5 py-0.5 rounded-full bg-brand-grayLight text-brand-dark border border-brand-border text-[10px] font-mono font-bold uppercase">
-                                WORKSHOP
-                            </span>
-                            <span class="text-xs font-mono text-brand-muted">Google Developer Group</span>
-                        </div>
-                        <h4 class="text-base font-bold text-brand-dark">Web Security & Best Practices</h4>
-                        <p class="text-xs text-brand-secondary">OWASP web security and defensive coding.</p>
-                    </div>
-                    <a href="certs/web-security-gdg.pdf" target="_blank" class="inline-flex items-center justify-between w-full pt-3 border-t border-brand-border text-xs font-mono font-bold text-brand-dark hover:text-brand-secondary transition-colors">
-                        <span>View Certificate</span>
-                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-                    </a>
-                </div>
-
-                <div class="cert-card p-6 rounded-2xl bg-white border border-brand-border shadow-soft flex flex-col justify-between space-y-4 hover-lift" data-cert-cat="workshops">
-                    <div class="space-y-2">
-                        <div class="flex items-center justify-between">
-                            <span class="px-2.5 py-0.5 rounded-full bg-brand-grayLight text-brand-dark border border-brand-border text-[10px] font-mono font-bold uppercase">
-                                BOOTCAMP
-                            </span>
-                            <span class="text-xs font-mono text-brand-muted">UPM</span>
-                        </div>
-                        <h4 class="text-base font-bold text-brand-dark">Hatchquest Startup Bootcamp</h4>
-                        <p class="text-xs text-brand-secondary">Startup incubation and pitching strategy.</p>
-                    </div>
-                    <a href="certs/hatchquest-bootcamp.pdf" target="_blank" class="inline-flex items-center justify-between w-full pt-3 border-t border-brand-border text-xs font-mono font-bold text-brand-dark hover:text-brand-secondary transition-colors">
-                        <span>View Certificate</span>
-                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-                    </a>
-                </div>
-
-                <div class="cert-card p-6 rounded-2xl bg-white border border-brand-border shadow-soft flex flex-col justify-between space-y-4 hover-lift" data-cert-cat="workshops">
-                    <div class="space-y-2">
-                        <div class="flex items-center justify-between">
-                            <span class="px-2.5 py-0.5 rounded-full bg-brand-grayLight text-brand-dark border border-brand-border text-[10px] font-mono font-bold uppercase">
-                                SUMMER CAMP
-                            </span>
-                            <span class="text-xs font-mono text-brand-muted">IVI, FCoEE, UKM</span>
-                        </div>
-                        <h4 class="text-base font-bold text-brand-dark">AI Summer Camp</h4>
-                        <p class="text-xs text-brand-secondary">Artificial intelligence training program.</p>
-                    </div>
-                    <a href="certs/ai-summer-camp.pdf" target="_blank" class="inline-flex items-center justify-between w-full pt-3 border-t border-brand-border text-xs font-mono font-bold text-brand-dark hover:text-brand-secondary transition-colors">
-                        <span>View Certificate</span>
-                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-                    </a>
-                </div>
-
-                <div class="cert-card p-6 rounded-2xl bg-white border border-brand-border shadow-soft flex flex-col justify-between space-y-4 hover-lift" data-cert-cat="workshops">
-                    <div class="space-y-2">
-                        <div class="flex items-center justify-between">
-                            <span class="px-2.5 py-0.5 rounded-full bg-brand-grayLight text-brand-dark border border-brand-border text-[10px] font-mono font-bold uppercase">
-                                PROGRAMME
-                            </span>
-                            <span class="text-xs font-mono text-brand-muted">UPM</span>
-                        </div>
-                        <h4 class="text-base font-bold text-brand-dark">Information Literacy Programme</h4>
-                        <p class="text-xs text-brand-secondary">Academic research methodology and archive literacy.</p>
-                    </div>
-                    <a href="certs/information-literacy-upm.pdf" target="_blank" class="inline-flex items-center justify-between w-full pt-3 border-t border-brand-border text-xs font-mono font-bold text-brand-dark hover:text-brand-secondary transition-colors">
-                        <span>View Certificate</span>
-                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-                    </a>
-                </div>
-
+                <a href="certs/piitram-gold.pdf" target="_blank" class="inline-flex items-center justify-between w-full pt-3 border-t border-brand-border text-xs font-mono font-bold text-brand-dark hover:text-brand-secondary transition-colors">
+                    <span>View Certificate</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                </a>
             </div>
+
+            <div class="cert-card p-6 rounded-2xl bg-white border border-brand-border shadow-soft flex flex-col justify-between space-y-4 hover-lift" data-cert-cat="competitions">
+                <div class="space-y-2">
+                    <div class="flex items-center justify-between">
+                        <span class="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-900 border border-emerald-300 text-[10px] font-mono font-bold uppercase">
+                            PITCH COMPETITION
+                        </span>
+                        <span class="text-xs font-mono text-brand-muted">KPT / CEM UPM</span>
+                    </div>
+                    <h4 class="text-base font-bold text-brand-dark">Top Agropreneur 2.0 IoT Pitch</h4>
+                    <p class="text-xs text-brand-secondary">Smart agriculture IoT incubator final pitch competition organized by KPT and CEM UPM.</p>
+                </div>
+                <a href="certs/iot2.jpg" target="_blank" class="inline-flex items-center justify-between w-full pt-3 border-t border-brand-border text-xs font-mono font-bold text-brand-dark hover:text-brand-secondary transition-colors">
+                    <span>View Certificate</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                </a>
+            </div>
+
+            <div class="cert-card p-6 rounded-2xl bg-white border border-brand-border shadow-soft flex flex-col justify-between space-y-4 hover-lift" data-cert-cat="competitions">
+                <div class="space-y-2">
+                    <div class="flex items-center justify-between">
+                        <span class="px-2.5 py-0.5 rounded-full bg-purple-100 text-purple-900 border border-purple-300 text-[10px] font-mono font-bold uppercase">
+                            HACKATHON
+                        </span>
+                        <span class="text-xs font-mono text-brand-muted">APUBCC / APU</span>
+                    </div>
+                    <h4 class="text-base font-bold text-brand-dark">deVMatch Hackathon</h4>
+                    <p class="text-xs text-brand-secondary">Rapid prototyping and solution development hackathon hosted by Asia Pacific University.</p>
+                </div>
+                <a href="certs/devmatch.pdf" target="_blank" class="inline-flex items-center justify-between w-full pt-3 border-t border-brand-border text-xs font-mono font-bold text-brand-dark hover:text-brand-secondary transition-colors">
+                    <span>View Certificate</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                </a>
+            </div>
+
+            <div class="cert-card p-6 rounded-2xl bg-white border border-brand-border shadow-soft flex flex-col justify-between space-y-4 hover-lift" data-cert-cat="competitions">
+                <div class="space-y-2">
+                    <div class="flex items-center justify-between">
+                        <span class="px-2.5 py-0.5 rounded-full bg-purple-100 text-purple-900 border border-purple-300 text-[10px] font-mono font-bold uppercase">
+                            HACKATHON
+                        </span>
+                        <span class="text-xs font-mono text-brand-muted">Kolaxus</span>
+                    </div>
+                    <h4 class="text-base font-bold text-brand-dark">NexG GODAMLah 2.0 Hackathon</h4>
+                    <p class="text-xs text-brand-secondary">Developer sprint hackathon focusing on system architecture under time constraints.</p>
+                </div>
+                <a href="certs/GodamLah2.0.pdf" target="_blank" class="inline-flex items-center justify-between w-full pt-3 border-t border-brand-border text-xs font-mono font-bold text-brand-dark hover:text-brand-secondary transition-colors">
+                    <span>View Certificate</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                </a>
+            </div>
+
+            <!-- PROFESSIONAL CERTIFICATIONS -->
+            <div class="cert-card p-6 rounded-2xl bg-white border border-brand-border shadow-soft flex flex-col justify-between space-y-4 hover-lift" data-cert-cat="professional">
+                <div class="space-y-2">
+                    <div class="flex items-center justify-between">
+                        <span class="px-2.5 py-0.5 rounded-full bg-red-100 text-red-900 border border-red-300 text-[10px] font-mono font-bold uppercase flex items-center gap-1">
+                            <i class="fa-solid fa-shield-halved text-red-600"></i> CEH V12
+                        </span>
+                        <span class="text-xs font-mono text-brand-muted">EC-Council</span>
+                    </div>
+                    <h4 class="text-base font-bold text-brand-dark">Certified Ethical Hacker (CEH v12)</h4>
+                    <p class="text-xs text-brand-secondary">ANSI ISO/IEC 17024 accredited credential in pentesting, attack vectors, and vulnerability assessment (Cert ID: ECC6508932417).</p>
+                </div>
+                <a href="certs/ECC-CEH-Certificate (1).pdf" target="_blank" class="inline-flex items-center justify-between w-full pt-3 border-t border-brand-border text-xs font-mono font-bold text-brand-dark hover:text-brand-secondary transition-colors">
+                    <span>View Certificate</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                </a>
+            </div>
+
+            <div class="cert-card p-6 rounded-2xl bg-white border border-brand-border shadow-soft flex flex-col justify-between space-y-4 hover-lift" data-cert-cat="professional">
+                <div class="space-y-2">
+                    <div class="flex items-center justify-between">
+                        <span class="px-2.5 py-0.5 rounded-full bg-brand-limePale text-brand-dark border border-brand-lime text-[10px] font-mono font-bold uppercase">
+                            PROFESSIONAL CERT
+                        </span>
+                        <span class="text-xs font-mono text-brand-muted">Google / Coursera</span>
+                    </div>
+                    <h4 class="text-base font-bold text-brand-dark">Google Data Analytics Professional Certificate</h4>
+                    <p class="text-xs text-brand-secondary">8-course series covering SQL, R Programming, Tableau, data visualization, and analytical case studies (ID: VHGIXC822Z50).</p>
+                </div>
+                <a href="certs/Coursera VHGIXC822Z50.pdf" target="_blank" class="inline-flex items-center justify-between w-full pt-3 border-t border-brand-border text-xs font-mono font-bold text-brand-dark hover:text-brand-secondary transition-colors">
+                    <span>View Certificate</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                </a>
+            </div>
+
+            <div class="cert-card p-6 rounded-2xl bg-white border border-brand-border shadow-soft flex flex-col justify-between space-y-4 hover-lift" data-cert-cat="professional">
+                <div class="space-y-2">
+                    <div class="flex items-center justify-between">
+                        <span class="px-2.5 py-0.5 rounded-full bg-brand-limePale text-brand-dark border border-brand-lime text-[10px] font-mono font-bold uppercase">
+                            PROFESSIONAL CERT
+                        </span>
+                        <span class="text-xs font-mono text-brand-muted">Google / Coursera</span>
+                    </div>
+                    <h4 class="text-base font-bold text-brand-dark">Google Cybersecurity Certificate</h4>
+                    <p class="text-xs text-brand-secondary">SIEM security operations, network defense, Linux administration, Python scripting, and incident response.</p>
+                </div>
+                <a href="certs/Cybersecurity.pdf" target="_blank" class="inline-flex items-center justify-between w-full pt-3 border-t border-brand-border text-xs font-mono font-bold text-brand-dark hover:text-brand-secondary transition-colors">
+                    <span>View Certificate</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                </a>
+            </div>
+
+            <div class="cert-card p-6 rounded-2xl bg-white border border-brand-border shadow-soft flex flex-col justify-between space-y-4 hover-lift" data-cert-cat="professional">
+                <div class="space-y-2">
+                    <div class="flex items-center justify-between">
+                        <span class="px-2.5 py-0.5 rounded-full bg-brand-limePale text-brand-dark border border-brand-lime text-[10px] font-mono font-bold uppercase">
+                            CERTIFICATION
+                        </span>
+                        <span class="text-xs font-mono text-brand-muted">UPM PutraMOOC</span>
+                    </div>
+                    <h4 class="text-base font-bold text-brand-dark">Data Analytics Certificate</h4>
+                    <p class="text-xs text-brand-secondary">Completed with Grade A (81.94%) in Data Analytics coursework at Faculty of Computer Science and IT, UPM (Cert ID: cj707D3K2W).</p>
+                </div>
+                <a href="certs/Course_Completion.pdf" target="_blank" class="inline-flex items-center justify-between w-full pt-3 border-t border-brand-border text-xs font-mono font-bold text-brand-dark hover:text-brand-secondary transition-colors">
+                    <span>View Certificate</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                </a>
+            </div>
+
+            <!-- WORKSHOPS & BOOTCAMPS -->
+            <div class="cert-card p-6 rounded-2xl bg-white border border-brand-border shadow-soft flex flex-col justify-between space-y-4 hover-lift" data-cert-cat="workshops">
+                <div class="space-y-2">
+                    <div class="flex items-center justify-between">
+                        <span class="px-2.5 py-0.5 rounded-full bg-brand-grayLight text-brand-dark border border-brand-border text-[10px] font-mono font-bold uppercase">
+                            WORKSHOP
+                        </span>
+                        <span class="text-xs font-mono text-brand-muted">GDGoC UPM</span>
+                    </div>
+                    <h4 class="text-base font-bold text-brand-dark">Creating A Mobile App With AI-Integrated Features</h4>
+                    <p class="text-xs text-brand-secondary">Hands-on workshop on embedding machine learning and AI model endpoints into mobile applications.</p>
+                </div>
+                <a href="certs/AI web.pdf" target="_blank" class="inline-flex items-center justify-between w-full pt-3 border-t border-brand-border text-xs font-mono font-bold text-brand-dark hover:text-brand-secondary transition-colors">
+                    <span>View Certificate</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                </a>
+            </div>
+
+            <div class="cert-card p-6 rounded-2xl bg-white border border-brand-border shadow-soft flex flex-col justify-between space-y-4 hover-lift" data-cert-cat="workshops">
+                <div class="space-y-2">
+                    <div class="flex items-center justify-between">
+                        <span class="px-2.5 py-0.5 rounded-full bg-brand-grayLight text-brand-dark border border-brand-border text-[10px] font-mono font-bold uppercase">
+                            WORKSHOP
+                        </span>
+                        <span class="text-xs font-mono text-brand-muted">GDGoC UPM</span>
+                    </div>
+                    <h4 class="text-base font-bold text-brand-dark">Exploring Web Security: Threats, Defenses & Best Practices</h4>
+                    <p class="text-xs text-brand-secondary">OWASP web vulnerability analysis, defensive coding strategies, and security auditing.</p>
+                </div>
+                <a href="certs/Choo En Yi( Web security).pdf" target="_blank" class="inline-flex items-center justify-between w-full pt-3 border-t border-brand-border text-xs font-mono font-bold text-brand-dark hover:text-brand-secondary transition-colors">
+                    <span>View Certificate</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                </a>
+            </div>
+
+            <div class="cert-card p-6 rounded-2xl bg-white border border-brand-border shadow-soft flex flex-col justify-between space-y-4 hover-lift" data-cert-cat="workshops">
+                <div class="space-y-2">
+                    <div class="flex items-center justify-between">
+                        <span class="px-2.5 py-0.5 rounded-full bg-brand-grayLight text-brand-dark border border-brand-border text-[10px] font-mono font-bold uppercase">
+                            WORKSHOP
+                        </span>
+                        <span class="text-xs font-mono text-brand-muted">GDGoC UPM</span>
+                    </div>
+                    <h4 class="text-base font-bold text-brand-dark">Exploring UI/UX Design: Tools & Prototyping with Figma</h4>
+                    <p class="text-xs text-brand-secondary">Interactive wireframing, design systems, and component prototyping.</p>
+                </div>
+                <a href="certs/Figma CERT.png" target="_blank" class="inline-flex items-center justify-between w-full pt-3 border-t border-brand-border text-xs font-mono font-bold text-brand-dark hover:text-brand-secondary transition-colors">
+                    <span>View Certificate</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                </a>
+            </div>
+
+            <div class="cert-card p-6 rounded-2xl bg-white border border-brand-border shadow-soft flex flex-col justify-between space-y-4 hover-lift" data-cert-cat="workshops">
+                <div class="space-y-2">
+                    <div class="flex items-center justify-between">
+                        <span class="px-2.5 py-0.5 rounded-full bg-brand-grayLight text-brand-dark border border-brand-border text-[10px] font-mono font-bold uppercase">
+                            BOOTCAMP
+                        </span>
+                        <span class="text-xs font-mono text-brand-muted">CEM UPM</span>
+                    </div>
+                    <h4 class="text-base font-bold text-brand-dark">Program Hatchquest Startup Bootcamp</h4>
+                    <p class="text-xs text-brand-secondary">Startup incubation bootcamp covering business model canvas, product-market fit, and pitching strategies.</p>
+                </div>
+                <a href="certs/HATCHQUEST BOOTCAMP CERT.pdf" target="_blank" class="inline-flex items-center justify-between w-full pt-3 border-t border-brand-border text-xs font-mono font-bold text-brand-dark hover:text-brand-secondary transition-colors">
+                    <span>View Certificate</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                </a>
+            </div>
+
+            <div class="cert-card p-6 rounded-2xl bg-white border border-brand-border shadow-soft flex flex-col justify-between space-y-4 hover-lift" data-cert-cat="workshops">
+                <div class="space-y-2">
+                    <div class="flex items-center justify-between">
+                        <span class="px-2.5 py-0.5 rounded-full bg-brand-grayLight text-brand-dark border border-brand-border text-[10px] font-mono font-bold uppercase">
+                            SUMMER CAMP
+                        </span>
+                        <span class="text-xs font-mono text-brand-muted">IVI, FCoEE, UKM</span>
+                    </div>
+                    <h4 class="text-base font-bold text-brand-dark">AI Summer Camp</h4>
+                    <p class="text-xs text-brand-secondary">Technical artificial intelligence training program co-hosted by IVI, FCoEE, and UKM.</p>
+                </div>
+                <a href="certs/ai-summer-camp.pdf" target="_blank" class="inline-flex items-center justify-between w-full pt-3 border-t border-brand-border text-xs font-mono font-bold text-brand-dark hover:text-brand-secondary transition-colors">
+                    <span>View Certificate</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                </a>
+            </div>
+
+            <div class="cert-card p-6 rounded-2xl bg-white border border-brand-border shadow-soft flex flex-col justify-between space-y-4 hover-lift" data-cert-cat="workshops">
+                <div class="space-y-2">
+                    <div class="flex items-center justify-between">
+                        <span class="px-2.5 py-0.5 rounded-full bg-brand-grayLight text-brand-dark border border-brand-border text-[10px] font-mono font-bold uppercase">
+                            PROGRAMME
+                        </span>
+                        <span class="text-xs font-mono text-brand-muted">Perpustakaan UPM</span>
+                    </div>
+                    <h4 class="text-base font-bold text-brand-dark">Information Literacy Programme: Library Orientation</h4>
+                    <p class="text-xs text-brand-secondary">Academic research methodology, archival database navigation, and information management.</p>
+                </div>
+                <a href="certs/Emailing eCertificate (Information Literacy Programme_ Library Orientation Sessions).pdf" target="_blank" class="inline-flex items-center justify-between w-full pt-3 border-t border-brand-border text-xs font-mono font-bold text-brand-dark hover:text-brand-secondary transition-colors">
+                    <span>View Certificate</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                </a>
+            </div>
+
         </div>
 
     </div>
 </section>
 
-<!-- Include JavaScript for Category Tab Switching -->
+<!-- Filter & Search JavaScript -->
 <script>
+    let currentCertCategory = 'all';
+
     function switchCertTab(category) {
-        // Reset all tabs active state
+        currentCertCategory = category;
+
         const tabs = document.querySelectorAll('.cert-tab');
         tabs.forEach(tab => {
             tab.classList.remove('bg-brand-dark', 'text-white', 'font-bold');
-            tab.classList.add('border', 'border-brand-border', 'text-brand-secondary');
+            tab.classList.add('border', 'border-brand-border', 'bg-white', 'text-brand-secondary');
         });
 
-        // Set clicked tab to active
         const activeTab = document.getElementById('tab-' + category);
         if (activeTab) {
             activeTab.classList.add('bg-brand-dark', 'text-white', 'font-bold');
-            activeTab.classList.remove('border', 'border-brand-border', 'text-brand-secondary');
+            activeTab.classList.remove('border', 'border-brand-border', 'bg-white', 'text-brand-secondary');
         }
 
-        // Filter certificate cards
+        filterCertifications();
+    }
+
+    function filterCertifications() {
+        const query = document.getElementById('cert-search-input').value.toLowerCase().trim();
         const cards = document.querySelectorAll('.cert-card');
+
         cards.forEach(card => {
-            if (category === 'all' || card.getAttribute('data-cert-cat') === category) {
+            const matchesCategory = (currentCertCategory === 'all' || card.getAttribute('data-cert-cat') === currentCertCategory);
+            const cardText = card.innerText.toLowerCase();
+            const matchesQuery = query === '' || cardText.includes(query);
+
+            if (matchesCategory && matchesQuery) {
                 card.style.display = 'flex';
             } else {
                 card.style.display = 'none';
@@ -881,9 +891,9 @@
             </h2>
 
             <div class="p-6 rounded-2xl bg-brand-grayLight border border-brand-border space-y-4">
-                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80"
+                <img src="images/googlepersonal.jpeg"
                      alt="Felicia Choo Working"
-                     class="w-full h-48 object-cover rounded-xl filter grayscale">
+                     class="w-full h-48 object-cover rounded-xl">
                 <div>
                     <div class="text-sm font-bold text-brand-dark">Felicia Choo</div>
                     <div class="text-xs font-mono text-brand-secondary">Computer Science Student & Software Engineer</div>
@@ -926,12 +936,12 @@
 
                     <!-- Description -->
                     <p class="text-xs text-brand-secondary leading-relaxed">
-                        Invited by <strong>Google for Education</strong> to co-lead an executive live demonstration alongside Prof. Dr. Ts. Nurfadlina binti Mohd Sharef for an international audience of University Presidents, Provosts, and CIOs[cite: 6]. Demonstrated practical applications of <strong>Gemini</strong> and <strong>NotebookLM</strong> in workflow structuring, data visualization, and AI-assisted code generation for retail analytics[cite: 4, 6].
+                        Invited by <strong>Google for Education</strong> to co-lead an executive live demonstration alongside Prof. Dr. Ts. Nurfadlina binti Mohd Sharef for an international audience of University Presidents, Provosts, and CIOs. Demonstrated practical applications of <strong>Gemini</strong> and <strong>NotebookLM</strong> in workflow structuring, data visualization, and AI-assisted code generation for retail analytics.
                     </p>
 
                     <!-- Key Highlights -->
                     <ul class="text-xs text-brand-secondary space-y-1 list-disc list-inside font-sans">
-                        <li>Grounded Malaysia’s national AI strategic vision into practical, classroom-level student impact[cite: 6].</li>
+                        <li>Grounded Malaysia’s national AI strategic vision into practical, classroom-level student impact.</li>
                         <li>Showcased prompt engineering techniques using Gemini Canvas for automated dashboard layout generation.</li>
                     </ul>
 
@@ -982,7 +992,7 @@
 
                     <!-- Attachment Link: Recommendation Letter -->
                     <div class="pt-1">
-                        <a href="docs/Coherent_Recommendation_Letter.pdf"
+                        <a href="recommendationLetter.jpg"
                            target="_blank"
                            class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-brand-grayLight border border-brand-border text-xs font-mono font-semibold text-brand-dark hover:bg-brand-border transition-all">
                             <i class="fa-solid fa-paperclip text-brand-secondary"></i>
@@ -1039,28 +1049,6 @@
                 </div>
 
             </div>
-
-            <!-- Verified Certifications Grid -->
-            <div class="pt-6 border-t border-brand-border">
-                <h4 class="text-xs font-mono uppercase tracking-widest text-brand-secondary mb-4">VERIFIED CERTIFICATIONS & HONORS</h4>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-mono">
-                    <div class="p-3 rounded-xl bg-brand-grayLight border border-brand-border flex items-center gap-3">
-                        <i class="fa-brands fa-google text-brand-dark"></i>
-                        <div>
-                            <div class="font-bold text-brand-dark">Google Cybersecurity</div>
-                            <div class="text-[10px] text-brand-secondary">Career Certificate</div>
-                        </div>
-                    </div>
-                    <div class="p-3 rounded-xl bg-brand-grayLight border border-brand-border flex items-center gap-3">
-                        <i class="fa-solid fa-trophy text-amber-500"></i>
-                        <div>
-                            <div class="font-bold text-brand-dark">Gold Medal Awardee</div>
-                            <div class="text-[10px] text-brand-secondary">PEDi COLLOQUIUM 2026 & PIITRAM 2023</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
 
     </div>
